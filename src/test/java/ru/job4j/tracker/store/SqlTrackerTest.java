@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -114,6 +115,25 @@ public class SqlTrackerTest {
                 item3
         );
         assertThat(tracker.findAll(), is(items));
+    }
+
+    @Test
+    public void whenAdd3ItemsThenFindAllByReact() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item1 = new Item("Item 1");
+        Item item2 = new Item("Item 2");
+        Item item3 = new Item("Item 3");
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
+        List<Item> items = List.of(
+                item1,
+                item2,
+                item3
+        );
+        List<Item> result = new ArrayList<>();
+        tracker.findAllByReact(result::add);
+        assertThat(result, is(items));
     }
 
     @Test
