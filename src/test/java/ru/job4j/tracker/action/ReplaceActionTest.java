@@ -31,7 +31,8 @@ public class ReplaceActionTest {
         rep.execute(input, tracker);
 
         String ln = System.lineSeparator();
-        assertThat(out.toString(), is("=== Edit item ====" + ln + "Заявка изменена успешно." + ln));
+        assertThat(out.toString(), is("=== Edit item ===="
+                + ln + "Item changed successfully." + ln));
         assertThat(tracker.findAll().get(0).getName(), is(replacedName));
     }
 
@@ -47,7 +48,7 @@ public class ReplaceActionTest {
         rep.execute(input, tracker);
 
         String ln = System.lineSeparator();
-        assertThat(out.toString(), is("=== Edit item ====" + ln + "Ошибка замены заявки." + ln));
+        assertThat(out.toString(), is("=== Edit item ====" + ln + "Item replaced error." + ln));
         assertThat(tracker.findAll().get(0).getName(), is("Replaced item"));
     }
 }

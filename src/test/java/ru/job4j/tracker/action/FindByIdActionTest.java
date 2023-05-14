@@ -44,6 +44,6 @@ public class FindByIdActionTest {
 
         String ln = System.lineSeparator();
         assertThat(out.toString(), is("=== Find item by id ====" + ln
-                + "Заявка с введенным id: 0 не найдена." + ln));
+                + "Item with the entered id : 0 was not found." + ln));
     }
 }

@@ -28,7 +28,7 @@ public class DeleteActionTest {
 
         String ln = System.lineSeparator();
         assertThat(out.toString(), is("=== Delete item ====" + ln
-                + "Заявка удалена успешно." + ln));
+                + "Data was successfully deleted." + ln));
         assertThat(tracker.findAll().size(), is(0));
     }
 
@@ -44,7 +44,7 @@ public class DeleteActionTest {
 
         String ln = System.lineSeparator();
         assertThat(out.toString(), is("=== Delete item ====" + ln
-                + "Ошибка удаления заявки." + ln));
+                + "Data could not be deleted." + ln));
         assertThat(tracker.findAll().get(0).getName(), is("Deleted item"));
     }
 }

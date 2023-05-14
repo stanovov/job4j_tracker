@@ -27,7 +27,7 @@ public class CreateActionTest {
 
         String ln = System.lineSeparator();
         assertThat(tracker.findAll().get(0).getName(), is(itemName));
-        assertThat(out.toString(), is("=== Create a new Item ====" + ln
-                + "Добавленная заявка: " + tracker.findByName(itemName).get(0) + ln));
+        assertThat(out.toString(), is("=== Add new Item ====" + ln
+                + "Added item: " + tracker.findByName(itemName).get(0) + ln));
     }
 }

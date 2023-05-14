@@ -51,6 +51,6 @@ public class FindByNameActionTest {
 
         String ln = System.lineSeparator();
         assertThat(out.toString(), is("=== Find items by name ====" + ln
-                + "Заявки с именем: " + findName + " не найдены." + ln));
+                + "Item with the entered name : " + findName + " was not found." + ln));
     }
 }

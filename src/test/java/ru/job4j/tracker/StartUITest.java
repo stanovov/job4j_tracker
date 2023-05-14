@@ -98,19 +98,18 @@ public class StartUITest {
                 new String[] {"0", "item", "1"}
         );
         MemTracker tracker = new MemTracker();
+        CreateAction createAction =  new CreateAction(out);
+        ExitAction exitAction = new ExitAction();
         ArrayList<UserAction> actions = new ArrayList<>(
-                Arrays.asList(
-                        new CreateAction(out),
-                        new ExitAction()
-                )
+                Arrays.asList(createAction, exitAction)
         );
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator()
                         + "0. Add new Item" + System.lineSeparator()
                         + "1. Exit" + System.lineSeparator()
-                        + "=== Create a new Item ====" + System.lineSeparator()
-                        + "Добавленная заявка: " + tracker.findAll().get(0) + System.lineSeparator()
+                        + "=== Add new Item ====" + System.lineSeparator()
+                        + "Added item: " + tracker.findAll().get(0) + System.lineSeparator()
                         + "Menu." + System.lineSeparator()
                         + "0. Add new Item" + System.lineSeparator()
                         + "1. Exit" + System.lineSeparator()
@@ -138,7 +137,7 @@ public class StartUITest {
                 "Menu." + System.lineSeparator()
                         + "0. Show all items" + System.lineSeparator()
                         + "1. Exit" + System.lineSeparator()
-                        + "==== Show all items ====" + System.lineSeparator()
+                        + "=== Show all items ====" + System.lineSeparator()
                         + items.get(0) + System.lineSeparator()
                         + items.get(1) + System.lineSeparator()
                         + "Menu." + System.lineSeparator()
@@ -167,7 +166,7 @@ public class StartUITest {
                         + "0. Edit item" + System.lineSeparator()
                         + "1. Exit" + System.lineSeparator()
                         + "=== Edit item ====" + System.lineSeparator()
-                        + "Заявка изменена успешно." + System.lineSeparator()
+                        + "Item changed successfully." + System.lineSeparator()
                         + "Menu." + System.lineSeparator()
                         + "0. Edit item" + System.lineSeparator()
                         + "1. Exit" + System.lineSeparator()
@@ -194,7 +193,7 @@ public class StartUITest {
                         + "0. Delete item" + System.lineSeparator()
                         + "1. Exit" + System.lineSeparator()
                         + "=== Delete item ====" + System.lineSeparator()
-                        + "Заявка удалена успешно." + System.lineSeparator()
+                        + "Data was successfully deleted." + System.lineSeparator()
                         + "Menu." + System.lineSeparator()
                         + "0. Delete item" + System.lineSeparator()
                         + "1. Exit" + System.lineSeparator()

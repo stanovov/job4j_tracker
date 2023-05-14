@@ -19,12 +19,12 @@ public class DeleteAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Store tracker) {
-        out.println("=== Delete item ====");
+        out.println(nameForPrint());
         int id = input.askInt("Enter id: ");
         if (tracker.delete(id)) {
-            out.println("Заявка удалена успешно.");
+            out.println("Data was successfully deleted.");
         } else {
-            out.println("Ошибка удаления заявки.");
+            out.println("Data could not be deleted.");
         }
         return true;
     }
